@@ -14,7 +14,7 @@ const ALARM_NAME = 'bbcTheme';
 async function createAlarm() {
   const alarm = await chrome.alarms.get(ALARM_NAME);
   if (typeof alarm === 'undefined') {
-    const bbcThemeTime = 87630;
+    const bbcThemeTime = 82630;
     const second = 1000;
     const minute = second * 60;
     const hour = minute * 60;
