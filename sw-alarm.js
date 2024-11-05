@@ -1,10 +1,23 @@
 function createSoundHtml()
 {
+  const bbcThemeTime = 82630;
+  const second = 1000;
+  const minute = second * 60;
+  const hour = minute * 60;
+  const day = hour * 24;
+  const year = day * 365;
+  let ms = Date.now();
+  let minutes = 60 - ms/minute %60;
+  let msRemaining = (minutes * minute) - bbcThemeTime;
+  let minutesRemaining = msRemaining / minute;
+  if(minutesRemaining < 1)
+  {
     chrome.offscreen.createDocument({
       url: chrome.runtime.getURL('audio.html'),
       reasons: ['AUDIO_PLAYBACK'],
       justification: 'notification',
     });
+  }
 }
 
 const ALARM_NAME = 'bbcTheme';
